@@ -27,6 +27,10 @@ export class SignupComponent implements OnInit {
 
     }
   }
+
+  cancel(){
+    this.router.navigate(['/login']);
+  }
   
   checkTextBoxes(): boolean {
     var returnVal = true;
