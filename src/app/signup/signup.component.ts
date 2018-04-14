@@ -34,6 +34,9 @@ export class SignupComponent implements OnInit {
       var user = new User();
       user.userName = this.model.userName;
       user.password = this.model.password;
+      user.firstName = this.model.firstName;
+      user.lastName = this.model.lastName;
+      user.emailAddress = this.model.emailAddress;
 
       this.userService.addUser(user).subscribe(data => {
         this.router.navigate(['/login']);
