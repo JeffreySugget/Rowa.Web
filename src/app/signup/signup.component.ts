@@ -36,7 +36,7 @@ export class SignupComponent implements OnInit {
       user.password = this.model.password;
 
       this.userService.addUser(user).subscribe(data => {
-        var temp = data;
+        this.router.navigate(['/login']);
       },
       error => {
         var temp = error;
