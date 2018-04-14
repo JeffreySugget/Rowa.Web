@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-signup',
@@ -16,15 +18,29 @@ export class SignupComponent implements OnInit {
   emailAddressValid = false;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
   }
 
+  //user: User;
+
+  user: User = new User();
+
   register() {
     if (this.checkTextBoxes()) {
+      var user = new User();
+      user.userName = this.model.userName;
+      user.password = this.model.password;
 
+      this.userService.addUser(user).subscribe(data => {
+        var temp = data;
+      },
+      error => {
+        var temp = error;
+      });
     }
   }
 
