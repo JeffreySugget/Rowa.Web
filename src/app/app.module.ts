@@ -9,13 +9,16 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { SignupComponent } from './signup/signup.component';
 import { UserService } from './user.service';
+import { AlertService } from './alert.service';
+import { AlertsComponent } from './alerts/alerts.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    AlertsComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,7 @@ import { UserService } from './user.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserService, HttpClientModule],
+  providers: [UserService, HttpClientModule, AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

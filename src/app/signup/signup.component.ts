@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../user';
+import { AlertService } from '../alert.service';
 
 @Component({
   selector: 'app-signup',
@@ -19,13 +20,12 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private alertService: AlertService
   ) { }
 
   ngOnInit() {
   }
-
-  //user: User;
 
   user: User = new User();
 
@@ -39,10 +39,11 @@ export class SignupComponent implements OnInit {
       user.emailAddress = this.model.emailAddress;
 
       this.userService.addUser(user).subscribe(data => {
+        this.alertService.createAccountSuccess('Created user account');
         this.router.navigate(['/login']);
       },
       error => {
-        var temp = error;
+        this.alertService.error(error);
       });
     }
   }
