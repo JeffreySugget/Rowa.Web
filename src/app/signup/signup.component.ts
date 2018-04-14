@@ -39,7 +39,7 @@ export class SignupComponent implements OnInit {
       user.emailAddress = this.model.emailAddress;
 
       this.userService.addUser(user).subscribe(data => {
-        this.alertService.createAccountSuccess('Created user account');
+        this.alertService.successKeep('Created user account');
         this.router.navigate(['/login']);
       },
       error => {

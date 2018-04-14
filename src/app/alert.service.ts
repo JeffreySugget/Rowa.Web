@@ -29,7 +29,7 @@ export class AlertService {
      this.subject.next({ type: 'success', text: message });
    }
 
-   createAccountSuccess(message: string, keepAfterNavigationChange = true) {
+   successKeep(message: string, keepAfterNavigationChange = true) {
      this.keepAfterNavigationChange = keepAfterNavigationChange;
      this.subject.next({ type: 'success', text: message });
    }
