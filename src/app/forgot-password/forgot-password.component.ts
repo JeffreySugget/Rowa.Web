@@ -40,8 +40,11 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   resetPassword() {
+    var user = new User();
+    user.userName = this.model.userName;
+    user.password = this.model.password;
     if (this.checkPasswordTextBoxes()) {
-      this.userService.resetPassword(this.model.userName, this.model.password).subscribe(data => {
+      this.userService.resetPassword(user).subscribe(data => {
         this.alertService.successKeep('Reset password for ' + this.model.userName);
         this.router.navigate[('/login')];
       },

@@ -13,11 +13,11 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   addUser(user: User) {
-    return this.http.post('http://localhost:54551/api/user', user);
+    return this.http.post('http://localhost:54551/api/user/createuser', user);
   }
 
   checkUser(userName: string, email: string) {
-    return this.http.get<boolean>('http://localhost:54551/api/user', {
+    return this.http.get<boolean>('http://localhost:54551/api/user/checkuser', {
       params: {
         userName: userName,
         emailAddress: email
@@ -25,12 +25,7 @@ export class UserService {
     });
   }
 
-  resetPassword(userName: string, password: string) {
-    return this.http.post('http://localhost:54551/api/user', {
-      params: {
-        userName: userName,
-        password: password
-      }
-    })
+  resetPassword(user: User) {
+    return this.http.post('http://localhost:54551/api/user/resetpassword', user);
   }
 }
