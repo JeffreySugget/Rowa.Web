@@ -11,6 +11,7 @@ import { SignupComponent } from './signup/signup.component';
 import { UserService } from './user.service';
 import { AlertService } from './alert.service';
 import { AlertsComponent } from './alerts/alerts.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { AlertsComponent } from './alerts/alerts.component';
     AppComponent,
     LoginComponent,
     SignupComponent,
-    AlertsComponent
+    AlertsComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

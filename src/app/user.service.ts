@@ -10,14 +10,27 @@ const httpOptions = {
 
 @Injectable()
 export class UserService {
-
   constructor(private http: HttpClient) { }
-
-/*   addUser(user: User): Observable<User> {
-    return this.http.post<User>('http://localhost:54551/api/user', user, httpOptions);
-  }  */
 
   addUser(user: User) {
     return this.http.post('http://localhost:54551/api/user', user);
+  }
+
+  checkUser(userName: string, email: string) {
+    return this.http.get<boolean>('http://localhost:54551/api/user', {
+      params: {
+        userName: userName,
+        emailAddress: email
+      }
+    });
+  }
+
+  resetPassword(userName: string, password: string) {
+    return this.http.get('http://localhost:54551/api/user', {
+      params: {
+        userName: userName,
+        password: password
+      }
+    })
   }
 }
