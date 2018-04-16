@@ -12,7 +12,6 @@ export class NavbarComponent implements OnInit {
 
   constructor(private router: Router) { 
     router.events.subscribe((val) => {
-      debugger
       this.currentPage = val['url']
     });
   }
