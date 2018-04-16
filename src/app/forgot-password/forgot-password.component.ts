@@ -26,7 +26,10 @@ export class ForgotPasswordComponent implements OnInit {
 
   checkUser() {
     if (this.checkUserTextBoxes()) {
-      this.userService.checkUser(this.model.userName, this.model.emailAddress).subscribe(data => {
+      var user = new User();
+      user.userName = this.model.userName;
+      user.emailAddress = this.model.emailAddress;
+      this.userService.checkUser(user).subscribe(data => {
         if (data) {
           this.userExists = true;
         } else {

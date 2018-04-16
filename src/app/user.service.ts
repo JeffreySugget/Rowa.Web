@@ -16,13 +16,8 @@ export class UserService {
     return this.http.post('http://localhost:54551/api/user/createuser', user);
   }
 
-  checkUser(userName: string, email: string) {
-    return this.http.get<boolean>('http://localhost:54551/api/user/checkuser', {
-      params: {
-        userName: userName,
-        emailAddress: email
-      }
-    });
+  checkUser(user: User) {
+    return this.http.post<boolean>('http://localhost:54551/api/user/checkuser', user);
   }
 
   resetPassword(user: User) {
