@@ -1,4 +1,4 @@
-<nav [hidden]="currentPage == '/signup' || currentPage == '/login' || currentPage == '/forgotPassword'">
+<nav [hidden]="currentPage == '/signup' || currentPage == '/login' || currentPage == '/forgotPassword' || currentPage =='/'">
   <a routerLink="/login" [ngClass]="{ 'active': currentPage === '/login' }">Home</a>
   <a routerLink="/heroes">ALINK</a>
 </nav>
