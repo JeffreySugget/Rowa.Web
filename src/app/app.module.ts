@@ -10,9 +10,11 @@ import { AppRoutingModule } from './/app-routing.module';
 import { SignupComponent } from './signup/signup.component';
 import { UserService } from './user.service';
 import { AlertService } from './alert.service';
+import { AuthenticationService } from './authentication.service';
 import { AlertsComponent } from './alerts/alerts.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     SignupComponent,
     AlertsComponent,
     ForgotPasswordComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserService, HttpClientModule, AlertService],
+  providers: [UserService, HttpClientModule, AlertService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

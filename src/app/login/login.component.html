@@ -10,10 +10,10 @@
   <img src="/assets/images/rowa.jpg" alt="rowa.jpg">
   <form class="form-group">
     <label>Username: </label>
-    <input type="text" class="form-control">
+    <input name="username" type="text" class="form-control" [(ngModel)]="model.username">
     <br>
     <label>Password: </label>
-    <input type="password" class="form-control">
+    <input name="password" type="password" class="form-control" [(ngModel)]="model.password">
     <br>
     <button class="btn" (click)="login()">Login</button>
     <br>
