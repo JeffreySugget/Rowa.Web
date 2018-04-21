@@ -12,9 +12,9 @@ export class AuthenticationService {
   login(user: User) {
     return this.http.post<any>('http://localhost:54551/api/user/loginuser', user)
         .map(user => {
-          if (user && user.Token) {
-            debugger
+          if (user && user.Token) {            
             localStorage.setItem('currentUser', JSON.stringify(user));
+            localStorage.setItem('token', JSON.stringify(user.Token));
           }
 
           return user;

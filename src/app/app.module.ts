@@ -11,10 +11,12 @@ import { SignupComponent } from './signup/signup.component';
 import { UserService } from './user.service';
 import { AlertService } from './alert.service';
 import { AuthenticationService } from './authentication.service';
+import { HttpInterceptorService } from './http-interceptor.service';
 import { AlertsComponent } from './alerts/alerts.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 @NgModule({
@@ -33,7 +35,7 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserService, HttpClientModule, AlertService, AuthenticationService],
+  providers: [UserService, HttpClientModule, AlertService, AuthenticationService, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
