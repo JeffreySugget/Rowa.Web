@@ -22,6 +22,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (localStorage.getItem('token') === null) {
+      this.router.navigate(['/login']);
+    }
   }
 
   test() {
