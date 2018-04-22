@@ -23,4 +23,11 @@ export class UserService {
   resetPassword(user: User) {
     return this.http.post('http://localhost:54551/api/user/resetpassword', user);
   }
+
+  updateProfilePicture(picToUpload: File, username: string) {
+    const formData: FormData = new FormData();
+    formData.append('profilePic', picToUpload, username + '-' + picToUpload.name);
+
+    return this.http.post<any>('http://localhost:54551/api/user/updateprofilepic', formData);
+  }
 }

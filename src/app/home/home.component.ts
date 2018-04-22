@@ -26,13 +26,4 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/login']);
     }
   }
-
-  test() {
-    this.userService.testAuth().subscribe(data => {
-
-    },
-    error => {
-      this.commonService.processHttpError(error);
-    });
-  }
 }
