@@ -23,8 +23,4 @@ export class UserService {
   resetPassword(user: User) {
     return this.http.post('http://localhost:54551/api/user/resetpassword', user);
   }
-
-  testAuth() {
-    return this.http.get<string>('http://localhost:54551/api/user/test');
-  }
 }
