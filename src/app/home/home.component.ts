@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user';
+import { Router } from '@angular/router';
+import { AlertService } from '../alert.service';
+import { CommonService } from '../common.service';
 
 @Component({
   selector: 'app-home',
@@ -11,12 +14,22 @@ export class HomeComponent implements OnInit {
 
   currentUser: User;
 
-  constructor(private userService: UserService) { 
-    debugger
+  constructor(private userService: UserService, 
+    private router: Router, 
+    private alertService: AlertService, 
+    private commonService: CommonService) { 
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
   }
 
+  test() {
+    this.userService.testAuth().subscribe(data => {
+
+    },
+    error => {
+      this.commonService.processHttpError(error);
+    });
+  }
 }
