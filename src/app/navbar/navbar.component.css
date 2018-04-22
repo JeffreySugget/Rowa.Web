@@ -21,3 +21,7 @@ nav a {
       background-color: red;
       color: black;
   }
+
+  .nav-bottom-margin {
+    margin-bottom: 10px;
+  }
