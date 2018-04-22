@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../user';
 
 @Component({
   selector: 'app-navbar',
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   currentPage: string;
+  currentUser: User;
 
   constructor(private router: Router) { 
     router.events.subscribe((val) => {
@@ -17,6 +19,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
 }
