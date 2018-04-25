@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../app/user';
 import 'rxjs/add/operator/map'
@@ -24,10 +24,14 @@ export class UserService {
     return this.http.post('http://localhost:54551/api/user/resetpassword', user);
   }
 
-  updateProfilePicture(picToUpload: File, username: string) {
+  updateProfilePicture(picToUpload: File) {
     const formData: FormData = new FormData();
-    formData.append('profilePic', picToUpload, username + '-' + picToUpload.name);
+    formData.append('profilePic', picToUpload, picToUpload.name);
 
     return this.http.post<any>('http://localhost:54551/api/user/updateprofilepic', formData);
+  }
+
+  getProfilePicture(): Observable<Blob> {
+    return this.http.get('http://localhost:54551/api/user/getprofilepic', { responseType: "blob" });
   }
 }

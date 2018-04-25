@@ -10,26 +10,47 @@ import { debug } from 'util';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  currentUser: any = JSON.parse(localStorage.getItem('currentUser'));
 
   constructor(private userService: UserService,
               private commonService: CommonService,
               private alertService: AlertService) { }
 
   ngOnInit() {
+    this.getProfilePic();
   }
 
   picToUpload: File = null;
+  profilePicSource: any;
 
   updateProfilePic(files: FileList) {
     this.picToUpload = files.item(0);
-    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-    this.userService.updateProfilePicture(this.picToUpload, currentUser.Username).subscribe(data => {
-      
+    this.userService.updateProfilePicture(this.picToUpload).subscribe(data => {
+      this.getProfilePic();
     },
     error => {
       this.commonService.processHttpError(error);
     });
   }
 
+  getProfilePic() {
+    this.userService.getProfilePicture().subscribe(data => {
+      if (data === null) {
+        this.profilePicSource = '/assets/images/blank-profile.jpeg';
+        return;
+      }
+      
+      let reader = new FileReader();
+      reader.addEventListener("load", () => {
+        this.profilePicSource = reader.result;
+
+      }, false);
+
+      reader.readAsDataURL(data);
+    },
+    error => {
+      this.commonService.processHttpError(error);
+    })
+  }
 }
