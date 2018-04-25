@@ -24,3 +24,7 @@
     background-color: red;
     color: black;
 }
+
+hr {
+    border-color: red;
+}

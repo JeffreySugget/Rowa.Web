@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service'
 import { CommonService } from '../common.service';
 import { AlertService } from '../alert.service';
+import { User } from '../user';
 import { debug } from 'util';
 
 @Component({
@@ -10,7 +11,7 @@ import { debug } from 'util';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  currentUser: any = JSON.parse(localStorage.getItem('currentUser'));
+  currentUser: User = JSON.parse(localStorage.getItem('currentUser'));
 
   constructor(private userService: UserService,
               private commonService: CommonService,
