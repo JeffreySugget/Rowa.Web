@@ -1,4 +1,6 @@
 <div class="col-lg-3">
   <img style="width: 100%; max-width: 300px;" [src]="profilePicSource" alt="blank-profile">
-  <input type="file" (change)="updateProfilePic($event.target.files)">
+  <br> <br>
+  <input type="file" (change)="updateProfilePic($event.target.files)" id="file" class="input-file">
+  <label for="file">Change Profile Picture </label>
 </div>
