@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit {
   }
 
   picToUpload: File = null;
-  profilePicSource: any;
+  profilePicSource: any = '/assets/images/giphy.gif';
 
   updateProfilePic(files: FileList) {
     this.picToUpload = files.item(0);
