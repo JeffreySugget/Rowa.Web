@@ -25,5 +25,7 @@ export class HomeComponent implements OnInit {
     if (localStorage.getItem('token') === null) {
       this.router.navigate(['/login']);
     }
+
+    this.commonService.checkToken();
   }
 }
