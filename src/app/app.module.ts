@@ -11,6 +11,7 @@ import { SignupComponent } from './signup/signup.component';
 import { UserService } from './user.service';
 import { AlertService } from './alert.service';
 import { CommonService } from './common.service';
+import { ProfileService } from './profile.service';
 import { AuthenticationService } from './authentication.service';
 import { HttpInterceptorService } from './http-interceptor.service';
 import { AlertsComponent } from './alerts/alerts.component';
@@ -38,7 +39,7 @@ import { ProfileComponent } from './profile/profile.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserService, HttpClientModule, AlertService, AuthenticationService, CommonService, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }],
+  providers: [UserService, HttpClientModule, AlertService, AuthenticationService, CommonService, ProfileService, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

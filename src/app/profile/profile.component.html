@@ -1,13 +1,39 @@
-<div class="row">
-    <div class=col-lg-3>
-        <img style="width: 100%; max-width: 300px;" [src]="profilePicSource" alt="blank-profile">
-        <br> <br>
-        <input type="file" (change)="updateProfilePic($event.target.files)" id="file" class="input-file">
-        <label for="file">Change Profile Picture </label>
-    </div>
-    <div class="col-lg-9">
-      <br><br><br>
-      <h1>{{ currentUser.Username }} - Profile</h1>
+<div style="margin-left: 15px;">
+    <div class="row">
+        <div class=col-lg-3>
+            <img style="width: 100%; max-width: 300px;" [src]="profilePicSource" alt="blank-profile">
+            <br> <br>
+            <input type="file" (change)="updateProfilePic($event.target.files)" id="file" class="input-file">
+            <label for="file">Change Profile Picture </label>
+        </div>
+        <div class="col-lg-9">
+          <br><br><br>
+          <h1>{{ currentUser.Username }} - Profile</h1>
+          <input type="button" (click)="editProfile()" id="edit" class="edit-profile">
+          <label for="edit" [hidden]="changing">Edit Profile</label>
+        </div>
     </div>
 </div>
 <hr>
+<div style="margin-left: 10px;">
+    <div class="col-md-6 col-md-offset-3">
+        <label>Username:</label>
+        <label [hidden]="changing">{{ currentUser.Username }}</label>
+        <input type="text" name="username" class="form-control" [(ngModel)]="currentUser.Username" [hidden]="!changing">
+        <br>
+        <label>First Name:</label>
+        <label [hidden]="changing">This is your first name</label>
+        <input type="text" name="firstName" class="form-control" [(ngModel)]="model.firstName" [hidden]="!changing">
+        <br>
+        <label>Last Name:</label>
+        <label [hidden]="changing">This is your last name</label>
+        <input type="text" name="lastName" class="form-control" [(ngModel)]="model.lastName" [hidden]="!changing">
+        <br>
+        <label>Email Address:</label>
+        <label [hidden]="changing">This is your email address</label>
+        <input type="text" name="emailAddress" class="form-control" [(ngModel)]="model.emailAddress" [hidden]="!changing">
+        <br>
+        <button [hidden]="!changing" (click)="updateProfile()" class="btn btn-primary">Update</button>
+        <button [hidden]="!changing" type="button" (click)="cancel()" class="btn btn-primary">Cancel</button>
+    </div>
+</div>
