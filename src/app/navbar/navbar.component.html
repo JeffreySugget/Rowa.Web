@@ -1,4 +1,5 @@
 <nav [hidden]="currentPage == '/signup' || currentPage == '/login' || currentPage == '/forgotPassword' || currentPage =='/'" class="nav-bottom-margin">
   <a routerLink="/home" [ngClass]="{ 'active': currentPage === '/home' }">Home</a>
+  <a style="float: right;" routerLink="/login" (click)="signOut()">Sign Out</a>
   <a style="float: right;" routerLink="/profile" [ngClass]="{ 'active': currentPage === '/profile' }">{{ currentUser.Username }}</a>
 </nav>

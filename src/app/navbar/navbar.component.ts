@@ -22,4 +22,11 @@ export class NavbarComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
+  signOut() {
+    debugger;
+    var temp = 0;
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('token');
+  }
+
 }
