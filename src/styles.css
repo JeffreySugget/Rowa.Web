@@ -5,3 +5,30 @@
     background-color: black;
     color: red;
 }
+
+.button {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.button + label {
+    color: red;
+    padding-right: 3px;
+    padding-left: 3px;
+    background-color: black;
+    display: inline-block;
+    cursor: pointer; /* "hand" cursor */
+    border: solid;
+    border-color: red;
+    border-radius: 4px;
+}
+
+.button:focus + label,
+.button + label:hover {
+    background-color: red;
+    color: black;
+}
