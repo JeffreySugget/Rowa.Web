@@ -23,8 +23,6 @@ export class NavbarComponent implements OnInit {
   }
 
   signOut() {
-    debugger;
-    var temp = 0;
     localStorage.removeItem('currentUser');
     localStorage.removeItem('token');
   }

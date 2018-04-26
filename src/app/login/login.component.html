@@ -15,7 +15,8 @@
     <label>Password: </label>
     <input name="password" type="password" class="form-control" [(ngModel)]="model.password">
     <br>
-    <button class="btn" (click)="login()">Login</button>
+    <button id="login" class="button" (click)="login()">Login</button>
+    <label for="login">Login</label>
     <br>
     <br>
     <a routerLink="/signup">Sign Up</a>

@@ -27,8 +27,10 @@
       <div *ngIf="f.submitted && !emailAddressValid" class="help-block">Email Address is required</div>
     </div>
     <div class="form-group">
-        <button (click)="register()" class="btn btn-primary">Register</button>
-        <button type="button" (click)="cancel()" class="btn btn-primary">Cancel</button>
+        <button id="register" (click)="register()" class="button"></button>
+        <label for="register">Register</label>
+        <button id="cancel" type="button" (click)="cancel()" class="button"></button>
+        <label for="cancel">Cancel</label>
     </div>
   </form>
 </div>
