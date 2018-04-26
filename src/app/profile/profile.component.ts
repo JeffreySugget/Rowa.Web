@@ -5,6 +5,7 @@ import { CommonService } from '../common.service';
 import { AlertService } from '../alert.service';
 import { User } from '../user';
 import { debug } from 'util';
+import { Userprofile } from '../userprofile';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +14,7 @@ import { debug } from 'util';
 })
 export class ProfileComponent implements OnInit {
   currentUser: User = JSON.parse(localStorage.getItem('currentUser'));
-  model: any = {};
+  model: Userprofile = new Userprofile();
   changing: boolean = false;
 
   constructor(private userService: UserService,
@@ -22,8 +23,8 @@ export class ProfileComponent implements OnInit {
               private profileService: ProfileService) { }
 
   ngOnInit() {
-    this.getProfilePic();
     this.getuserProfile();
+    this.getProfilePic();
   }
 
   picToUpload: File = null;
@@ -41,7 +42,13 @@ export class ProfileComponent implements OnInit {
   }
 
   getuserProfile() {
-
+    this.profileService.getUserProfile().subscribe(data => {
+      debugger
+      this.model = data;
+    },
+    error => {
+      this.commonService.processHttpError(error);
+    });
   }
 
   getProfilePic() {

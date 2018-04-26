@@ -1,6 +1,6 @@
 export class Userprofile {
-    username:string;
-    firstname:string;
-    lastname:string;
-    emailAddress:string;
+    Username:string;
+    FirstName:string;
+    LastName:string;
+    Email:string;
 }
