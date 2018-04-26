@@ -22,4 +22,8 @@ export class ProfileService {
   getUserProfile() {
     return this.http.get<Userprofile>('http://localhost:54551/api/profile/getuserprofile');
   }
+
+  updateUserProfile(userProfile: Userprofile) {
+    return this.http.post('http://localhost:54551/api/profile/updateuserprofile', userProfile);
+  }
 }

@@ -76,7 +76,14 @@ export class ProfileComponent implements OnInit {
   }
 
   updateProfile() {
-
+    this.profileService.updateUserProfile(this.model).subscribe(data => {
+      this.getuserProfile();
+      this.alertService.success('Updated profile');
+      this.changing = false;
+    },
+    error => {
+      this.commonService.processHttpError(error);
+    });
   }
 
   cancel() {
