@@ -32,7 +32,9 @@
         <label [hidden]="changing">{{ model.Email }}</label>
         <input type="text" name="emailAddress" class="form-control" [(ngModel)]="model.Email" [hidden]="!changing">
         <br>
-        <button [hidden]="!changing" (click)="updateProfile()" class="btn btn-primary">Update</button>
-        <button [hidden]="!changing" type="button" (click)="cancel()" class="btn btn-primary">Cancel</button>
+        <button id="update" (click)="updateProfile()" class="button">Update</button>
+        <label for="update" [hidden]="!changing">Update</label>
+        <button id="cancel" type="button" (click)="cancel()" class="button">Cancel</button>
+        <label for="cancel" [hidden]="!changing">Cancel</label>
     </div>
 </div>
