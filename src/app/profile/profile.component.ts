@@ -23,6 +23,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.getProfilePic();
+    this.getuserProfile();
   }
 
   picToUpload: File = null;
@@ -37,6 +38,10 @@ export class ProfileComponent implements OnInit {
     error => {
       this.commonService.processHttpError(error);
     });
+  }
+
+  getuserProfile() {
+
   }
 
   getProfilePic() {

@@ -12,10 +12,14 @@ export class ProfileService {
     const formData: FormData = new FormData();
     formData.append('profilePic', picToUpload, picToUpload.name);
 
-    return this.http.post<any>('http://localhost:54551/api/user/updateprofilepic', formData);
+    return this.http.post<any>('http://localhost:54551/api/profile/updateprofilepic', formData);
   }
 
   getProfilePicture(): Observable<Blob> {
-    return this.http.get('http://localhost:54551/api/user/getprofilepic', { responseType: "blob" });
+    return this.http.get('http://localhost:54551/api/profile/getprofilepic', { responseType: "blob" });
+  }
+
+  getUserProfile() {
+    return this.http.get<Userprofile>('http://localhost:54551/api/profile/getuserprofile');
   }
 }
