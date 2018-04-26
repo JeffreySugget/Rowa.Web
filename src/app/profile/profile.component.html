@@ -18,8 +18,7 @@
 <div style="margin-left: 10px;">
     <div class="col-md-6 col-md-offset-3">
         <label>Username:</label>
-        <label [hidden]="changing">{{ model.Username }}</label>
-        <input type="text" name="username" class="form-control" [(ngModel)]="model.Username" [hidden]="!changing">
+        <label>{{ model.Username }}</label>
         <br>
         <label>First Name:</label>
         <label [hidden]="changing">{{ model.FirstName }}</label>
