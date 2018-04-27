@@ -24,7 +24,6 @@ export class CommonService {
     var decoded = JSON.parse(atob(base64));
     var ms = (new Date).getTime();
 
-    debugger;
     if (ms < decoded.exp) {
       this.expireSession();
     }

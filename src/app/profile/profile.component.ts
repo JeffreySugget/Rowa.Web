@@ -43,7 +43,6 @@ export class ProfileComponent implements OnInit {
 
   getuserProfile() {
     this.profileService.getUserProfile().subscribe(data => {
-      debugger
       this.model = data;
     },
     error => {
@@ -53,7 +52,7 @@ export class ProfileComponent implements OnInit {
 
   getProfilePic() {
     this.profileService.getProfilePicture().subscribe(data => {
-      if (data === null) {
+      if (data.size === 0) {
         this.profilePicSource = '/assets/images/blank-profile.jpeg';
         return;
       }

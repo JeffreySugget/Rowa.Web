@@ -20,6 +20,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
+import { MembersComponent } from './members/members.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ProfileComponent } from './profile/profile.component';
     ForgotPasswordComponent,
     NavbarComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    MembersComponent
   ],
   imports: [
     BrowserModule,
