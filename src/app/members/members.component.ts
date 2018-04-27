@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MembersService } from '../members.service';
+import { CommonService } from '../common.service';
 
 @Component({
   selector: 'app-members',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MembersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private membersService: MembersService,
+              private commonService: CommonService) { }
+
+  members: string[];
 
   ngOnInit() {
+    this.getCurrentMembers();
+  }
+
+  getCurrentMembers() {
+    this.membersService.getMembers().subscribe(data => {
+      debugger;
+      this.members = data;
+    },
+    error => {
+      this.commonService.processHttpError(error);
+    })
+  }
+
+  profileNameClicked(name:string) {
+    debugger;
   }
 
 }

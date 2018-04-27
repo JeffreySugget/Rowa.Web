@@ -1,3 +1,6 @@
-<p>
-  members works!
-</p>
+<div class="col-md-6 col-md-offset-3">
+  <h3>Current list of members. Click on a name to be redirected to their profile.</h3>
+  <div>
+    <span class="member-names" (click)="profileNameClicked($event.target)" *ngFor="let member of members">{{ member }} </span>
+  </div>
+</div>
