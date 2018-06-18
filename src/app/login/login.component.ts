@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     var user = new User();
-    user.userName = this.model.username;
+    user.emailAddress = this.model.emailAddress;
     user.password = this.model.password;
 
     this.authenticationService.login(user).subscribe(data => {

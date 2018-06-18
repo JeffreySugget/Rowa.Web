@@ -2,9 +2,9 @@
   <h2>Fill in the below form to sign up</h2>
   <form name="form" (ngSubmit)="f.form.valid" #f="ngForm">
     <div class="form-group" [ngClass]="{ 'has-error': f.submitted }">
-      <label>Username</label>
-      <input name="userName" type="text" class="form-control" [(ngModel)]="model.userName" required>
-      <div *ngIf="f.submitted && !userNameValid" class="help-block">Username is required</div>
+      <label>Email Address</label>
+      <input name="emailAddress" type="text" class="form-control" [(ngModel)]="model.emailAddress" required>
+      <div *ngIf="f.submitted && !emailAddressValid" class="help-block">Email Address is required</div>
     </div>
     <div class="form-group" [ngClass]="{ 'has-error': f.submitted }">
       <label>Password</label>
@@ -20,11 +20,6 @@
       <label>Last Name</label>
       <input name="lastName" type="text" class="form-control" [(ngModel)]="model.lastName" required>
       <div *ngIf="f.submitted && !lastNameValid" class="help-block">Last Name is required</div>
-    </div>
-    <div class="form-group" [ngClass]="{ 'has-error': f.submitted }">
-      <label>Email Address</label>
-      <input name="emailAddress" type="text" class="form-control" [(ngModel)]="model.emailAddress" required>
-      <div *ngIf="f.submitted && !emailAddressValid" class="help-block">Email Address is required</div>
     </div>
     <div class="form-group">
         <button id="register" (click)="register()" class="button"></button>

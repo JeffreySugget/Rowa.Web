@@ -32,7 +32,6 @@ export class SignupComponent implements OnInit {
   register() {
     if (this.checkTextBoxes()) {
       var user = new User();
-      user.userName = this.model.userName;
       user.password = this.model.password;
       user.firstName = this.model.firstName;
       user.lastName = this.model.lastName;
@@ -54,13 +53,6 @@ export class SignupComponent implements OnInit {
   
   checkTextBoxes(): boolean {
     var returnVal = true;
-
-    if (this.model.userName != undefined) {
-      //TODO: Check if username exists
-      this.userNameValid = true;
-    } else {
-      returnVal = false;
-    }
 
     if (this.model.password != undefined) {
       this.passwordValid = true;
