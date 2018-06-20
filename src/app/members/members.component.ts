@@ -20,7 +20,6 @@ export class MembersComponent implements OnInit {
 
   getCurrentMembers() {
     this.membersService.getMembers().subscribe(data => {
-      debugger;
       this.members = data;
     },
     error => {
@@ -29,7 +28,7 @@ export class MembersComponent implements OnInit {
   }
 
   profileNameClicked(name:string) {
-    debugger;
+    
   }
 
 }
