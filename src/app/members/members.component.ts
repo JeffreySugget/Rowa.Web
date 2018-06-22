@@ -30,7 +30,7 @@ export class MembersComponent implements OnInit {
   }
 
   profileNameClicked(name:string) {
-    this.router.navigate(['/profile', {name: name}]);
+    this.router.navigate(['/profile', name]);
   }
 
 }

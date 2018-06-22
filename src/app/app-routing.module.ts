@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'forgotPassword', component: ForgotPasswordComponent },
   { path: 'home', component: HomeComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'profile/:name', component: ProfileComponent },
   { path: 'members', component: MembersComponent }
 ];
 
