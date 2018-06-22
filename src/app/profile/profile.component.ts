@@ -17,19 +17,24 @@ export class ProfileComponent implements OnInit {
   currentUser: User = JSON.parse(localStorage.getItem('currentUser'));
   model: Userprofile = new Userprofile();
   changing: boolean = false;
-  userName: any;
+  userName: string;
 
   constructor(private userService: UserService,
               private commonService: CommonService,
               private alertService: AlertService,
               private profileService: ProfileService,
               private route: ActivatedRoute) {
-                this.route.params.subscribe(params => this.userName = params);
+                this.route.params.subscribe(params => this.userName = params.name);
                }
 
   ngOnInit() {
-    this.getuserProfile();
-    this.getProfilePic();
+    if (this.userName === undefined) {
+      this.getuserProfile();
+      this.getProfilePic();
+    } else {
+      this.getOtherUserProfile();
+      this.getOtherUserProfilePic();
+    }
   }
 
   picToUpload: File = null;
@@ -40,6 +45,15 @@ export class ProfileComponent implements OnInit {
 
     this.profileService.updateProfilePicture(this.picToUpload).subscribe(data => {
       this.getProfilePic();
+    },
+    error => {
+      this.commonService.processHttpError(error);
+    });
+  }
+
+  getOtherUserProfile() {
+    this.profileService.getOtherUserProfile(this.userName).subscribe(data => {
+      this.model = data;
     },
     error => {
       this.commonService.processHttpError(error);
@@ -57,6 +71,26 @@ export class ProfileComponent implements OnInit {
 
   getProfilePic() {
     this.profileService.getProfilePicture().subscribe(data => {
+      if (data.size === 0) {
+        this.profilePicSource = '/assets/images/blank-profile.jpeg';
+        return;
+      }
+      
+      let reader = new FileReader();
+      reader.addEventListener("load", () => {
+        this.profilePicSource = reader.result;
+
+      }, false);
+
+      reader.readAsDataURL(data);
+    },
+    error => {
+      this.commonService.processHttpError(error);
+    })
+  }
+
+  getOtherUserProfilePic() {
+    this.profileService.getOtherUserProfilePic(this.userName).subscribe(data => {
       if (data.size === 0) {
         this.profilePicSource = '/assets/images/blank-profile.jpeg';
         return;

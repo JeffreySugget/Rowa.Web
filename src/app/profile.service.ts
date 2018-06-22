@@ -26,4 +26,14 @@ export class ProfileService {
   updateUserProfile(userProfile: Userprofile) {
     return this.http.post('http://localhost:54551/api/profile/updateuserprofile', userProfile);
   }
+
+  getOtherUserProfile(name: string) {
+    let params = new HttpParams().set("name", name);
+    return this.http.get<Userprofile>('http://localhost:54551/api/profile/getotheruserprofile', {params: params});
+  }
+
+  getOtherUserProfilePic(name: string): Observable<Blob> {
+    let params = new HttpParams().set("name", name);
+    return this.http.get('http://localhost:54551/api/profile/getotheruserprofilepic', { responseType: "blob", params: params });
+  }
 }
