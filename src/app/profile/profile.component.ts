@@ -6,6 +6,7 @@ import { AlertService } from '../alert.service';
 import { User } from '../user';
 import { debug } from 'util';
 import { Userprofile } from '../userprofile';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-profile',
@@ -16,11 +17,15 @@ export class ProfileComponent implements OnInit {
   currentUser: User = JSON.parse(localStorage.getItem('currentUser'));
   model: Userprofile = new Userprofile();
   changing: boolean = false;
+  userName: any;
 
   constructor(private userService: UserService,
               private commonService: CommonService,
               private alertService: AlertService,
-              private profileService: ProfileService) { }
+              private profileService: ProfileService,
+              private route: ActivatedRoute) {
+                this.route.params.subscribe(params => this.userName = params);
+               }
 
   ngOnInit() {
     this.getuserProfile();

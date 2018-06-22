@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MembersService } from '../members.service';
 import { CommonService } from '../common.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-members',
@@ -10,7 +11,8 @@ import { CommonService } from '../common.service';
 export class MembersComponent implements OnInit {
 
   constructor(private membersService: MembersService,
-              private commonService: CommonService) { }
+            private commonService: CommonService,
+            private router: Router) { }
 
   members: string[];
 
@@ -28,7 +30,7 @@ export class MembersComponent implements OnInit {
   }
 
   profileNameClicked(name:string) {
-    
+    this.router.navigate(['/profile', {name: name}]);
   }
 
 }
