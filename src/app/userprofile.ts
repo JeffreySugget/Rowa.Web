@@ -3,4 +3,5 @@ export class Userprofile {
     FirstName:string;
     LastName:string;
     Email:string;
+    Rank: string;
 }

@@ -14,7 +14,7 @@ export class MembersComponent implements OnInit {
             private commonService: CommonService,
             private router: Router) { }
 
-  members: string[];
+  members: any[];
 
   ngOnInit() {
     this.getCurrentMembers();
