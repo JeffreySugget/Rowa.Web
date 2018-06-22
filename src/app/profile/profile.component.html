@@ -8,7 +8,8 @@
         </div>
         <div class="col-lg-9">
           <br><br><br>
-          <h1>{{ currentUser.FirstName }} {{ currentUser.LastName }} - Profile</h1>
+          <h1 [hidden]="model.ReadOnly">{{ currentUser.FirstName }} {{ currentUser.LastName }} - Profile</h1>
+          <h1 [hidden]="!model.ReadOnly">{{ model.FirstName }} {{ model.LastName }} - Profile</h1>
           <input type="button" (click)="editProfile()" id="edit" class="button">
           <label class="edit-profile" for="edit" [hidden]="changing || model.ReadOnly">Edit Profile</label>
         </div>
